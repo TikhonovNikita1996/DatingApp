@@ -15,12 +15,12 @@ public class TokenService(IConfiguration config) : ITokenService
         if (tokenKey.Length < 64) throw new Exception("TokenKey needs to be longer");
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenKey));
 
-        var claims = new List<Claim> // требования для входа
+        var claims = new List<Claim> 
         {
             new Claim(ClaimTypes.NameIdentifier, appUser.UserName)
         };
 
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature); // реквизиты для входа
+        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature); 
 
         var tokenDescriptor = new SecurityTokenDescriptor 
         {
