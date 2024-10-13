@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace API.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdatedUserEntity : Migration
+    public partial class UpdateUserEntity : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -86,7 +86,7 @@ namespace API.Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Url = table.Column<string>(type: "TEXT", nullable: false),
                     IsMain = table.Column<bool>(type: "INTEGER", nullable: false),
-                    PunlicId = table.Column<string>(type: "TEXT", nullable: true),
+                    PublicId = table.Column<string>(type: "TEXT", nullable: true),
                     AppUserId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
