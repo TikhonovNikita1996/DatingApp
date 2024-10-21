@@ -1,1 +1,4 @@
-{}
+{
+ "editor.fontSize": 17,
+ "terminal.integrated.fontSize": 17   
+}
