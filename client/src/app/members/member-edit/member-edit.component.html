@@ -34,11 +34,11 @@
                     </div>
                     <div>
                         <strong>Last Active:</strong>
-                        <p>{{member.lastActive}}</p>
+                        <p>{{member.lastActive | timeago}}</p>
                     </div>
                     <div>
                         <strong>Member since:</strong>
-                        <p>{{member.created}}</p>
+                        <p>{{member.created | date: 'longDate'}}</p>
                     </div>
                 </div>
                 <div class="card-footer">
@@ -55,47 +55,54 @@
         <div class="col-8">
             <tabset class="member-tabset">
                 <tab heading="About {{member.knownAs}}">
-                    <form id="editForm" 
-                        #editForm="ngForm" (ngSubmit)="updateMember()">
+                    <form id="editForm" #editForm="ngForm" (ngSubmit)="updateMember()">
                         <h4 class="mt-2">Description</h4>
-                        <textarea 
-                            class="form-control" 
-                            name="introduction" 
-                            [(ngModel)] ="member.introduction"
-                            rows="6">
+                        <textarea
+                            class="form-control"
+                            name="introduction"
+                            [(ngModel)]="member.introduction"
+                            rows="6"
+                        >
                         </textarea>
                         <h4 class="mt-2">Looking for</h4>
-                        <textarea 
-                            class="form-control" 
-                            name="lookingFor" 
-                            [(ngModel)] ="member.lookingFor"
-                            rows="6">
-                        </textarea><h4 class="mt-2">Interests</h4>
-                        <textarea 
-                            class="form-control" 
-                            name="interests" 
-                            [(ngModel)] ="member.interests"
-                            rows="6">
+                        <textarea
+                            class="form-control"
+                            name="lookingFor"
+                            [(ngModel)]="member.lookingFor"
+                            rows="6"
+                        >
+                        </textarea>
+                        <h4 class="mt-2">Interests</h4>
+                        <textarea
+                            class="form-control"
+                            name="interests"
+                            [(ngModel)]="member.interests"
+                            rows="6"
+                        >
                         </textarea>
 
                         <h4 class="mt-2">Location Details</h4>
-
-                        <div class="d-flex allign-items-center">
+                        <div class="d-flex align-items-center">
                             <label>City: </label>
-                            <input type="text" [(ngModel)]="member.city"
-                                   class="form-control mx-2"
-                                   name="city">
+                            <input type="text"
+                                [(ngModel)]="member.city"
+                                class="form-control mx-2"
+                                name="city"
+                            >
                             <label>Country: </label>
-                            <input type="text" [(ngModel)]="member.country"
-                                   class="form-control mx-2"
-                                   name="country">
+                            <input type="text"
+                                [(ngModel)]="member.country"
+                                class="form-control mx-2"
+                                name="country"
+                            >
                         </div>
 
                     </form>
                 </tab>
                 <tab heading="Edit photos">
-                    <app-photo-editor [member]="member"
-                    (memberChange)="onMemberChange($event)"
+                    <app-photo-editor
+                      [member]="member"
+                      (memberChange)="onMemberChange($event)"
                     ></app-photo-editor>
                 </tab>
             </tabset>
