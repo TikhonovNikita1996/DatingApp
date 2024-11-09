@@ -12,7 +12,5 @@ public interface ILikesRepository
     Task<PagedList<MemberDto>> GetUserLikes(LikesParams likesParams);
     Task<IEnumerable<int>> GetCurrentUserLikeId(int currentUserId);
     void DeleteLike(UserLike like);
-    void AddLike(UserLike like);
-    Task<bool> SaveChanges();
-    
+    void AddLike(UserLike like);   
 }

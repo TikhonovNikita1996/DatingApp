@@ -23,7 +23,6 @@ public class DataContext(DbContextOptions options) : IdentityDbContext<AppUser, 
             .HasForeignKey(ur => ur.UserId)
             .IsRequired();
 
-
         builder.Entity<AppRole>().HasMany(ur => ur.UserRoles)
             .WithOne(u => u.Role)
             .HasForeignKey(ur => ur.RoleId)

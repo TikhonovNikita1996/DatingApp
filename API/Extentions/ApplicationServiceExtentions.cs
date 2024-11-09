@@ -25,10 +25,10 @@ public static class ApplicationServiceExtentions
         services.AddScoped<ILikesRepository, LikesRepository>();
         services.AddScoped<IPhotoService, PhotoService>();
         services.AddScoped<IMessageRerository, MessageRepository>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<LogUserActivity>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.AddSingleton<PresenceTracker>();
-
         services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
         services.AddSignalR();
 
